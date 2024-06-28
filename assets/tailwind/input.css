@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.full-screen {
+  @apply w-screen h-screen;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-container {
+  @apply flex justify-around items-center;
+}
+
+.icon {
+  @apply p-1 mx-1;
+}
+
+.btn {
+  @apply p-2 border-2 rounded-lg hover:text-slate-900 hover:bg-slate-100;
+}
