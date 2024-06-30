@@ -1,5 +1,11 @@
 For Tailwind Compilation
 
 ```bash
-tailwindcss -i ./assets/tailwind/input.css -o ./assets/tailwind/output.css
+tailwindcss -i ./styles/tailwind/input.css -o ./styles/tailwind/output.css
+```
+
+for, continousious try,
+
+```bash
+tailwindcss -i ./styles/tailwind/input.css -o ./styles/tailwind/output.css --watch
 ```
