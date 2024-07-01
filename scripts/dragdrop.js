@@ -8,13 +8,15 @@ const setup_drag_and_drop_functionality = (dragables, dropzone) => {
             });
 
             dropzone.addEventListener("drop", (e) => {
-                e.preventDefault();
-                dropzone.appendChild(selected.cloneNode(true));
+                selected = selected.cloneNode(true);
+                selected.classList.add("show-full");
+                dropzone.appendChild(selected);
                 selected = null;
             });
         });
     });
 };
+
 
 const get_require_elements = (dragablesSelector, dropzoneSelector) => {
     let dragables = document.querySelectorAll(dragablesSelector);
@@ -30,6 +32,7 @@ const get_require_elements = (dragablesSelector, dropzoneSelector) => {
 
     return [dragables, dropzone];
 };
+
 
 document.addEventListener("DOMContentLoaded", () => {
     let [dragables, dropzone] = get_require_elements(".dragable", ".script-content");

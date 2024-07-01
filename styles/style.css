@@ -34,3 +34,15 @@ body {
   background: var(--fore-ground);
   color: var(--back-ground);
 }
+
+.show-full .details {
+  display: flex;
+  gap: 16px;
+}
+
+input.args {
+  background: var(--fore-ground);
+  color: var(--back-ground);
+  border: 2px solid var(--back-ground);
+  border-radius: 8px;
+}

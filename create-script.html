@@ -29,22 +29,40 @@
             <button>Copy</button>
             <button>Download</button>
             <div class="script-content">
-                <h1>drop here!!</h1>
+                <h1>Script Content</h1>
             </div>
         </div>
 
         <div class="script-snippits w-5/12 flex-container flex-col">
             <div class="btn w-full m-2 dragable" draggable="true">
                 <h3>Print A Message</h3>
+                <div class="hidden details p-2">
+                    <label for="message">Message: </label>
+                    <input type="text" id="message" class="args">
+                </div>
             </div>
             <div class="btn w-full m-2 dragable" draggable="true">
                 <h3>Make a Directory</h3>
+                <div class="hidden details p-2">
+                    <label for="directoryname">DirectoryName: </label>
+                    <input type="text" id="directoryname" class="args">
+                </div>
             </div>
             <div class="btn w-full m-2 dragable" draggable="true">
                 <h3>Make a File</h3>
+                <div class="hidden details p-2">
+                    <label for="filename">FileName: </label>
+                    <input type="text" id="filename" class="args">
+                </div>
             </div>
             <div class="btn w-full m-2 dragable" draggable="true">
                 <h3>Write to File</h3>
+                <div class="hidden details p-2">
+                    <label for="filename">FileName: </label>
+                    <input type="text" id="filename" class="args">
+                    <label for="content">Content: </label>
+                    <input type="text" id="content" class="args">
+                </div>
             </div>
         </div>
     </body>
