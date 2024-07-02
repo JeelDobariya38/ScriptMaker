@@ -17,52 +17,69 @@
 
         <link rel="stylesheet" href="./styles/style.css">
         <link rel="stylesheet" href="./styles/tailwind/output.css">
-        <script src="./scripts/dragdrop.js"></script>
-        <script src="./scripts/compile.js"></script>
         <script src="./scripts/utils.js"></script>
+        <script src="./scripts/compile.js"></script>
+        <script src="./scripts/extract_script_content.js"></script>
+        <script src="./scripts/dragdrop.js"></script>
         <script src="./scripts/script.js"></script>
     </head>
 
     <body class="dark-theme">
-        <h1>Create scripts that automate world!!!</h1>
+        <h1 class="text-4xl font-black text-center p-2">Create scripts that automate world!!!</h1>
 
-        <div class="script-container">
-            <button id="copybtn">Copy</button>
-            <button>Download</button>
-            <div class="script-content">
-                <h1>Script Content</h1>
+        <div class="script-container m-4">
+            <h1 class="text-xl font-extrabold">Script Content</h1>
+            <div class="py-2 flex justify-between">
+                <div>
+                    <label for="language-option">Choose a language: </label>
+                    <select name="language" id="language-option">
+                        <option value="powershell">PowerShell</option>
+                        <option value="bash">Bash</option>
+                    </select>
+                </div>
+                <div>
+                    <button id="copybtn" class="btn">Copy</button>
+                    <button id="downloadbtn" class="btn">Download</button>
+                </div>
             </div>
-        </div>
 
-        <div class="script-snippits w-5/12 flex-container flex-col">
-            <div id="printmsg" class="btn w-full m-2 dragable" draggable="true">
-                <h3>Print A Message</h3>
-                <div id="details" class="hidden details p-2">
-                    <label for="messageinput">Message: </label>
-                    <input type="text" id="messageinput" class="args">
+            <div class="flex justify-between gap-8">
+                <div class="script-content min-w-16 min-h-16 container">
+
                 </div>
-            </div>
-            <div id="mkdir" class="btn w-full m-2 dragable" draggable="true">
-                <h3>Make a Directory</h3>
-                <div id="details" class="hidden details p-2">
-                    <label for="directorynameinput">DirectoryName: </label>
-                    <input type="text" id="directorynameinput" class="args">
-                </div>
-            </div>
-            <div id="mkfile" class="btn w-full m-2 dragable" draggable="true">
-                <h3>Make a File</h3>
-                <div id="details" class="hidden details p-2">
-                    <label for="filenameinput">FileName: </label>
-                    <input type="text" id="filenameinput" class="args">
-                </div>
-            </div>
-            <div id="writefile" class="btn w-full m-2 dragable" draggable="true">
-                <h3>Write to File</h3>
-                <div id="details" class="hidden details p-2">
-                    <label for="filenameinput">FileName: </label>
-                    <input type="text" id="filenameinput" class="args">
-                    <label for="contentinput">Content: </label>
-                    <input type="text" id="contentinput" class="args">
+
+                <div class="script-snippits w-5/12">
+                    <p class="text-center text-slate-500">Drap & Drop Elements To Make Scripts!!</p>
+                    <div id="printmsg" class="btn w-full m-2 dragable" draggable="true">
+                        <h3>Print A Message</h3>
+                        <div id="details" class="hidden details p-2">
+                            <label for="messageinput">Message: </label>
+                            <input type="text" id="messageinput" class="args">
+                        </div>
+                    </div>
+                    <div id="mkdir" class="btn w-full m-2 dragable" draggable="true">
+                        <h3>Make a Directory</h3>
+                        <div id="details" class="hidden details p-2">
+                            <label for="directorynameinput">DirectoryName: </label>
+                            <input type="text" id="directorynameinput" class="args">
+                        </div>
+                    </div>
+                    <div id="mkfile" class="btn w-full m-2 dragable" draggable="true">
+                        <h3>Make a File</h3>
+                        <div id="details" class="hidden details p-2">
+                            <label for="filenameinput">FileName: </label>
+                            <input type="text" id="filenameinput" class="args">
+                        </div>
+                    </div>
+                    <div id="writefile" class="btn w-full m-2 dragable" draggable="true">
+                        <h3>Write to File</h3>
+                        <div id="details" class="hidden details p-2">
+                            <label for="filenameinput">FileName: </label>
+                            <input type="text" id="filenameinput" class="args">
+                            <label for="contentinput">Content: </label>
+                            <input type="text" id="contentinput" class="args">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

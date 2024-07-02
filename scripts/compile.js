@@ -1,76 +1,59 @@
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector("#copybtn").addEventListener("click", () => {
-        let scriptcontent = document.querySelector(".script-content");
-        let childrens = scriptcontent.childNodes;
-        let scriptTokens = [];
+class GeneralCompile {
+    constructor(scriptTokens, comiplerOption) {
+        this.scriptTokens = scriptTokens;
+        this.compiler = comiplerOption;
+        this.qoute = "\"";
+        this.newline = "\n";
+    }
 
-        childrens.forEach((elem, indx) => {
-            let token = {
-                id: indx,
-            };
+    compile() {
+        let code = "";
 
-            if (elem.id == "printmsg") {
-                token.id = "printmsg";
-                elem.childNodes.forEach((childElem) => {
-                    if (childElem.id == "details") {
-                        childElem.childNodes.forEach((detailChildElem) => {
-                            if (detailChildElem.id == "messageinput") {
-                                token.message = detailChildElem.value;
-                            }
-                        });
-                    }
-                });
+        this.scriptTokens.forEach((obj) => {
+            if (obj.id == "printmsg") {
+                code = code + this.compiler.printKey + " " + this.qoute + obj.message + this.qoute + this.newline;
             }
-
-            else if (elem.id == "mkdir") {
-                token.id = "mkdir";
-                elem.childNodes.forEach((childElem) => {
-                    if (childElem.id == "details") {
-                        childElem.childNodes.forEach((detailChildElem) => {
-                            if (detailChildElem.id == "directorynameinput") {
-                                token.dirname = detailChildElem.value;
-                            }
-                        });
-                    }
-                });
+            else if (obj.id == "mkdir") {
+                code = code + this.compiler.mkdirKey + " " + this.qoute + obj.dirname + this.qoute + this.newline;
             }
-
-            else if (elem.id == "mkfile") {
-                token.id = "mkfile";
-                elem.childNodes.forEach((childElem) => {
-                    if (childElem.id == "details") {
-                        childElem.childNodes.forEach((detailChildElem) => {
-                            if (detailChildElem.id == "filenameinput") {
-                                token.filename = detailChildElem.value;
-                            }
-                        });
-                    }
-                });
+            else if (obj.id == "mkfile") {
+                code = code + this.compiler.mkfileKey + " " + this.qoute + obj.filename + this.qoute + this.newline;
             }
-
-            else if (elem.id == "writefile") {
-                token.id = "writefile";
-                elem.childNodes.forEach((childElem) => {
-                    if (childElem.id == "details") {
-                        childElem.childNodes.forEach((detailChildElem) => {
-                            if (detailChildElem.id == "filenameinput") {
-                                token.filename = detailChildElem.value;
-                            }
-                            if (detailChildElem.id == "contentinput") {
-                                token.content = detailChildElem.value;
-                            }
-                        });
-                    }
-                });
+            else if (obj.id == "writefile") {
+                code = code + this.compiler.writefileKey + " " + this.qoute + obj.content + this.qoute + " >> " + this.qoute + obj.filename + this.qoute + this.newline;
             }
-
-            else {
-                return;
-            }
-
-            scriptTokens.push(token);
         });
 
-        console.log(scriptTokens);
-    });
-});
+        return code;
+    }
+}
+
+const comiplerOption = {
+    bash: {
+        printKey: "echo",
+        mkdirKey: "mkdir",
+        mkfileKey: "touch",
+        writefileKey: "echo",
+    },
+    powershell: {
+        printKey: "Write-Host",
+        mkdirKey: "New-Item",
+        mkfileKey: "New-Item",
+        writefileKey: "Write-Host",
+    }
+}
+
+function compile(scriptTokens) {
+    // return: [code, fileExtension]
+    let option = getSelectedLanguage();
+
+    if (option == "powershell") {
+        let compiler = new GeneralCompile(scriptTokens, comiplerOption.powershell);
+        let code = compiler.compile();
+        return [code, ".ps1"];
+    } else if (option == "bash") {
+        let compiler = new GeneralCompile(scriptTokens, comiplerOption.bash);
+        let code = compiler.compile();
+        return [code, ".bash"];
+    }
+}
