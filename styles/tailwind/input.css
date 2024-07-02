@@ -21,3 +21,7 @@
 .btn {
   @apply p-2 border-2 rounded-lg hover:text-slate-900 hover:bg-slate-100;
 }
+
+.container {
+  @apply p-4 my-4 border-2 rounded-lg;
+}
