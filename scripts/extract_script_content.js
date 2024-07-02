@@ -14,7 +14,7 @@ const getCode = () => {
                 if (childElem.id == "details") {
                     childElem.childNodes.forEach((detailChildElem) => {
                         if (detailChildElem.id == "messageinput") {
-                            token.message = detailChildElem.value;
+                            token.message = makeSafeStr(detailChildElem.value);
                         }
                     });
                 }
@@ -27,7 +27,7 @@ const getCode = () => {
                 if (childElem.id == "details") {
                     childElem.childNodes.forEach((detailChildElem) => {
                         if (detailChildElem.id == "directorynameinput") {
-                            token.dirname = detailChildElem.value;
+                            token.dirname = makeSafeStr(detailChildElem.value);
                         }
                     });
                 }
@@ -40,7 +40,7 @@ const getCode = () => {
                 if (childElem.id == "details") {
                     childElem.childNodes.forEach((detailChildElem) => {
                         if (detailChildElem.id == "filenameinput") {
-                            token.filename = detailChildElem.value;
+                            token.filename = makeSafeStr(detailChildElem.value);
                         }
                     });
                 }
@@ -53,10 +53,10 @@ const getCode = () => {
                 if (childElem.id == "details") {
                     childElem.childNodes.forEach((detailChildElem) => {
                         if (detailChildElem.id == "filenameinput") {
-                            token.filename = detailChildElem.value;
+                            token.filename = makeSafeStr(detailChildElem.value);
                         }
                         if (detailChildElem.id == "contentinput") {
-                            token.content = detailChildElem.value;
+                            token.content = makeSafeStr(detailChildElem.value);
                         }
                     });
                 }

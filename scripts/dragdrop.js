@@ -10,6 +10,7 @@ const setup_drag_and_drop_functionality = (dragables, dropzone) => {
             dropzone.addEventListener("drop", (e) => {
                 selected = selected.cloneNode(true);
                 selected.classList.add("show-full");
+                selected.draggable = false;
                 dropzone.appendChild(selected);
                 selected = null;
             });

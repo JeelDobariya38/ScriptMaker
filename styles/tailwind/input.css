@@ -19,7 +19,11 @@
 }
 
 .btn {
-  @apply p-2 border-2 rounded-lg hover:text-slate-900 hover:bg-slate-100;
+  @apply p-2 border-2 rounded-lg transition-colors hover:text-slate-900 hover:bg-slate-100;
+}
+
+.btnfeedback {
+  @apply active:text-blue-500 active:bg-slate-800;
 }
 
 .container {
