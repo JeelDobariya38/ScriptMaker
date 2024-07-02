@@ -2,7 +2,6 @@ class GeneralCompile {
     constructor(scriptTokens, comiplerOption) {
         this.scriptTokens = scriptTokens;
         this.compiler = comiplerOption;
-        this.qoute = "\"";
         this.newline = "\n";
     }
 
@@ -11,16 +10,16 @@ class GeneralCompile {
 
         this.scriptTokens.forEach((obj) => {
             if (obj.id == "printmsg") {
-                code = code + this.compiler.printKey + " " + this.qoute + obj.message + this.qoute + this.newline;
+                code = code + this.compiler.getPrintMsgSyntax(obj) + this.newline;
             }
             else if (obj.id == "mkdir") {
-                code = code + this.compiler.mkdirKey + " " + this.qoute + obj.dirname + this.qoute + this.newline;
+                code = code + this.compiler.getMkDirSyntax(obj) + this.newline;
             }
             else if (obj.id == "mkfile") {
-                code = code + this.compiler.mkfileKey + " " + this.qoute + obj.filename + this.qoute + this.newline;
+                code = code + this.compiler.getMkFileSyntax(obj) + this.newline;
             }
             else if (obj.id == "writefile") {
-                code = code + this.compiler.writefileKey + " " + this.qoute + obj.content + this.qoute + " >> " + this.qoute + obj.filename + this.qoute + this.newline;
+                code = code + this.compiler.getWriteFileSyntax(obj) + this.newline;
             }
         });
 
@@ -30,16 +29,16 @@ class GeneralCompile {
 
 const comiplerOption = {
     bash: {
-        printKey: "echo",
-        mkdirKey: "mkdir",
-        mkfileKey: "touch",
-        writefileKey: "echo",
+        getPrintMsgSyntax: (obj) => `echo "${obj.message}"`,
+        getMkDirSyntax: (obj) => `mkdir "${obj.dirname}"`,
+        getMkFileSyntax: (obj) => `touch "${obj.filename}"`,
+        getWriteFileSyntax: (obj) => `echo "${obj.content}" >> "${obj.filename}"`,
     },
     powershell: {
-        printKey: "Write-Host",
-        mkdirKey: "New-Item",
-        mkfileKey: "New-Item",
-        writefileKey: "Write-Host",
+        getPrintMsgSyntax: (obj) => `Write-Host "${obj.message}"`,
+        getMkDirSyntax: (obj) => `New-Item "${obj.dirname}" -ItemType Directory`,
+        getMkFileSyntax: (obj) => `New-Item "${obj.filename}"`,
+        getWriteFileSyntax: (obj) => `Add-Content -Path "${obj.filename}" -Value "${obj.content}"`,
     }
 }
 

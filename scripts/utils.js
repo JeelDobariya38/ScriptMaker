@@ -16,3 +16,7 @@ let downloadFile = (filename, content) => {
 let copyToClipboard = (code) => {
     navigator.clipboard.writeText(code);
 }
+
+let makeSafeStr = (text) => {
+    return text.replace(/"/g, "\'");
+}
