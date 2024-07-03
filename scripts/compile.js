@@ -29,7 +29,7 @@ class GeneralCompile {
 
 const comiplerOption = {
     bash: {
-        preset: `#!/bin/bash \n`,
+        preset: `#!/bin/bash \n\n`,
         getPrintMsgSyntax: (obj) => `echo "${obj.message}"`,
         getMkDirSyntax: (obj) => `mkdir -p "${obj.dirname}"`,
         getMkFileSyntax: (obj) => `touch "${obj.filename}"`,
@@ -41,6 +41,13 @@ const comiplerOption = {
         getMkDirSyntax: (obj) => `New-Item -Path "${obj.dirname}" -ItemType Directory`,
         getMkFileSyntax: (obj) => `New-Item -Path "${obj.filename}"`,
         getWriteFileSyntax: (obj) => `Add-Content -Path "${obj.filename}" -Value "${obj.content}"`,
+    },
+    bat: {
+        preset: `@echo off \n\n`,
+        getPrintMsgSyntax: (obj) => `echo ${obj.message}`,
+        getMkDirSyntax: (obj) => `mkdir ${obj.dirname}`,
+        getMkFileSyntax: (obj) => `type nul > ${obj.filename}`,
+        getWriteFileSyntax: (obj) => `echo ${obj.content} > ${obj.filename}`,
     }
 }
 
@@ -56,5 +63,9 @@ function compile(scriptTokens) {
         let compiler = new GeneralCompile(scriptTokens, comiplerOption.bash);
         let code = compiler.compile();
         return [code, ".bash"];
+    } else if (option == "bat") {
+        let compiler = new GeneralCompile(scriptTokens, comiplerOption.bat);
+        let code = compiler.compile();
+        return [code, ".bat"];
     }
 }
