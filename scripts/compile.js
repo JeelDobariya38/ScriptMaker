@@ -6,7 +6,7 @@ class GeneralCompile {
     }
 
     compile() {
-        let code = "";
+        let code = this.compiler.preset;
 
         this.scriptTokens.forEach((obj) => {
             if (obj.id == "printmsg") {
@@ -29,16 +29,32 @@ class GeneralCompile {
 
 const comiplerOption = {
     bash: {
+        preset: `#!/bin/bash \n\n`,
         getPrintMsgSyntax: (obj) => `echo "${obj.message}"`,
-        getMkDirSyntax: (obj) => `mkdir "${obj.dirname}"`,
+        getMkDirSyntax: (obj) => `mkdir -p "${obj.dirname}"`,
         getMkFileSyntax: (obj) => `touch "${obj.filename}"`,
         getWriteFileSyntax: (obj) => `echo "${obj.content}" >> "${obj.filename}"`,
     },
     powershell: {
+        preset: ``,
         getPrintMsgSyntax: (obj) => `Write-Host "${obj.message}"`,
-        getMkDirSyntax: (obj) => `New-Item "${obj.dirname}" -ItemType Directory`,
-        getMkFileSyntax: (obj) => `New-Item "${obj.filename}"`,
+        getMkDirSyntax: (obj) => `New-Item -Path "${obj.dirname}" -ItemType Directory`,
+        getMkFileSyntax: (obj) => `New-Item -Path "${obj.filename}"`,
         getWriteFileSyntax: (obj) => `Add-Content -Path "${obj.filename}" -Value "${obj.content}"`,
+    },
+    bat: {
+        preset: `@echo off \n\n`,
+        getPrintMsgSyntax: (obj) => `echo ${obj.message}`,
+        getMkDirSyntax: (obj) => `mkdir ${obj.dirname}`,
+        getMkFileSyntax: (obj) => `type nul > ${obj.filename}`,
+        getWriteFileSyntax: (obj) => `echo ${obj.content} >> ${obj.filename}`,
+    },
+    python: {
+        preset: `import os \n\nif __name__ == "__main__":\n`,
+        getPrintMsgSyntax: (obj) => `\tprint("${obj.message}")`,
+        getMkDirSyntax: (obj) => `\tos.mkdir("${obj.dirname}")`,
+        getMkFileSyntax: (obj) => `\topen("${obj.filename}", "a").close()`,
+        getWriteFileSyntax: (obj) => `\twith open("${obj.filename}", "a") as f:\n\t\tf.write("${obj.content}")`,
     }
 }
 
@@ -54,5 +70,13 @@ function compile(scriptTokens) {
         let compiler = new GeneralCompile(scriptTokens, comiplerOption.bash);
         let code = compiler.compile();
         return [code, ".bash"];
+    } else if (option == "bat") {
+        let compiler = new GeneralCompile(scriptTokens, comiplerOption.bat);
+        let code = compiler.compile();
+        return [code, ".bat"];
+    } else if (option == "python") {
+        let compiler = new GeneralCompile(scriptTokens, comiplerOption.python);
+        let code = compiler.compile();
+        return [code, ".py"];
     }
 }

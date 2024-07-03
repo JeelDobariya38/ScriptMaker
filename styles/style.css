@@ -51,3 +51,24 @@ select {
 .text-center {
   text-align: center;
 }
+
+@media (max-width: 800px) {
+  .responsive-hide {
+    display: none;
+  }
+}
+
+.stable {
+  color: white;
+}
+
+.depecreted {
+  color: red;
+}
+
+#toast-info {
+  display: none;
+  padding: 4px 6px;
+  border: 2px solid red;
+  border-radius: 24px;
+}
