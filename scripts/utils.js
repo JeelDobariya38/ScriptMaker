@@ -7,20 +7,23 @@ let highlightDepertedLanguage = () => {
     let infoElem = document.querySelector("#toast-info");
     let checklist = document.querySelector("#language-option");
 
+    if (!infoElem || !checklist) {
+        return false;
+    }
+
     checklist.addEventListener("change", () => {
-        console.log(checklist.value);
         if (checklist.value == "bat") {
             checklist.style.color = "red";
             infoElem.style.color = "red";
             infoElem.textContent = "Batch Script is kind of old, Use Powershell Instead!!";
             infoElem.style.display = "inline-block";
         } else if (checklist.value == "python") {
-            checklist.style.color = "yellow";
-            infoElem.style.color = "yellow";
+            checklist.style.color = "inherit";
+            infoElem.style.color = "red";
             infoElem.textContent = "Compiling to native shell scripting might be benifiser!!";
             infoElem.style.display = "inline-block";
         } else {
-            checklist.style.color = "white";
+            checklist.style.color = "inherit";
             infoElem.style.display = "none";
         };
     });
