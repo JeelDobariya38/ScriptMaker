@@ -48,6 +48,13 @@ const comiplerOption = {
         getMkDirSyntax: (obj) => `mkdir ${obj.dirname}`,
         getMkFileSyntax: (obj) => `type nul > ${obj.filename}`,
         getWriteFileSyntax: (obj) => `echo ${obj.content} >> ${obj.filename}`,
+    },
+    python: {
+        preset: `import os \n\nif __name__ == "__main__":\n`,
+        getPrintMsgSyntax: (obj) => `\tprint("${obj.message}")`,
+        getMkDirSyntax: (obj) => `\tos.mkdir("${obj.dirname}")`,
+        getMkFileSyntax: (obj) => `\topen("${obj.filename}", "a").close()`,
+        getWriteFileSyntax: (obj) => `\twith open("${obj.filename}", "a") as f:\n\t\tf.write("${obj.content}")`,
     }
 }
 
@@ -67,5 +74,9 @@ function compile(scriptTokens) {
         let compiler = new GeneralCompile(scriptTokens, comiplerOption.bat);
         let code = compiler.compile();
         return [code, ".bat"];
+    } else if (option == "python") {
+        let compiler = new GeneralCompile(scriptTokens, comiplerOption.python);
+        let code = compiler.compile();
+        return [code, ".py"];
     }
 }
