@@ -3,6 +3,29 @@ let getSelectedLanguage = () => {
     return checklist.value;
 }
 
+let highlightDepertedLanguage = () => {
+    let infoElem = document.querySelector("#toast-info");
+    let checklist = document.querySelector("#language-option");
+
+    checklist.addEventListener("change", () => {
+        console.log(checklist.value);
+        if (checklist.value == "bat") {
+            checklist.style.color = "red";
+            infoElem.style.color = "red";
+            infoElem.textContent = "Batch Script is kind of old, Use Powershell Instead!!";
+            infoElem.style.display = "inline-block";
+        } else if (checklist.value == "python") {
+            checklist.style.color = "yellow";
+            infoElem.style.color = "yellow";
+            infoElem.textContent = "Compiling to native shell scripting might be benifiser!!";
+            infoElem.style.display = "inline-block";
+        } else {
+            checklist.style.color = "white";
+            infoElem.style.display = "none";
+        };
+    });
+}
+
 let downloadFile = (filename, content) => {
     const blob = new Blob([content], { type: "text/plain" });
     const link = document.createElement("a");
@@ -20,3 +43,7 @@ let copyToClipboard = (code) => {
 let makeSafeStr = (text) => {
     return text.replace(/"/g, "\'");
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    highlightDepertedLanguage();
+});

@@ -33,16 +33,20 @@
                 <div>
                     <label for="language-option">Choose a language: </label>
                     <select name="language" id="language-option">
-                        <option value="powershell">PowerShell</option>
-                        <option value="bash">Bash</option>
+                        <option class="stable" value="powershell">PowerShell (Windows)</option>
+                        <option class="stable" value="bash">Bash (Linux/MacOs)</option>
+                        <!-- <option class="stable" value="python">Python 3.9+</option> -->
                         <option class="depecreted" value="bat">Depecreted: Batch (Bat)</option>
                     </select>
                 </div>
+                <div id="toast-info" class="my-4 text-xs"></div>
                 <div>
-                    <button id="copybtn" class="btn btnfeedback"><i class="px-2 fa-solid fa-clipboard"></i>Copy To
-                        ClipBoard</button>
+                    <button id="copybtn" class="btn btnfeedback"><i class="px-2 fa-solid fa-clipboard"></i
+                            class="responsive"><span class="responsive-hide">Copy To
+                            ClipBoard</span></button>
                     <button id="downloadbtn" class="btn btnfeedback"><i
-                            class="px-2 fa-solid fa-file-arrow-down"></i>Download</button>
+                            class="px-2 fa-solid fa-file-arrow-down"></i><span
+                            class="responsive-hide">Download</span></button>
                 </div>
             </div>
 
