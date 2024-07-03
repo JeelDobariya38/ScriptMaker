@@ -21,4 +21,7 @@ function checkScreenWidth() {
     }
 }
 
+if (!window.location.pathname.includes(".html")) {
+    window.location.pathname += "index.html";
+}
 window.onload = checkScreenWidth;
