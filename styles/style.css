@@ -6,11 +6,13 @@
 .dark-theme {
   --fore-ground: var(--black);
   --back-ground: var(--white);
+  --active-color: #0369a1;
 }
 
 .light-theme {
   --fore-ground: var(--white);
   --back-ground: var(--black);
+  --active-color: #14b8a6;
 }
 
 * {
@@ -43,7 +45,7 @@ body {
 input.args,
 select {
   background: var(--fore-ground);
-  color: var(--back-ground);
+  color: var(--active-ground);
   border: 2px solid var(--back-ground);
   border-radius: 8px;
 }
@@ -59,7 +61,7 @@ select {
 }
 
 .stable {
-  color: white;
+  color: var(--active-color);
 }
 
 .depecreted {
