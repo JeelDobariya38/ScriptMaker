@@ -33,7 +33,7 @@ const comiplerOption = {
         getPrintMsgSyntax: (obj) => `echo "${obj.message}"`,
         getMkDirSyntax: (obj) => `mkdir -p "${obj.dirname}"`,
         getMkFileSyntax: (obj) => `touch "${obj.filename}"`,
-        getWriteFileSyntax: (obj) => `echo "${obj.content}" > "${obj.filename}"`,
+        getWriteFileSyntax: (obj) => `echo "${obj.content}" >> "${obj.filename}"`,
     },
     powershell: {
         preset: ``,
@@ -47,7 +47,7 @@ const comiplerOption = {
         getPrintMsgSyntax: (obj) => `echo ${obj.message}`,
         getMkDirSyntax: (obj) => `mkdir ${obj.dirname}`,
         getMkFileSyntax: (obj) => `type nul > ${obj.filename}`,
-        getWriteFileSyntax: (obj) => `echo ${obj.content} > ${obj.filename}`,
+        getWriteFileSyntax: (obj) => `echo ${obj.content} >> ${obj.filename}`,
     }
 }
 
