@@ -6,7 +6,7 @@ class GeneralCompile {
     }
 
     compile() {
-        let code = "";
+        let code = this.compiler.preset;
 
         this.scriptTokens.forEach((obj) => {
             if (obj.id == "printmsg") {
@@ -29,15 +29,17 @@ class GeneralCompile {
 
 const comiplerOption = {
     bash: {
+        preset: `#!/bin/bash \n`,
         getPrintMsgSyntax: (obj) => `echo "${obj.message}"`,
-        getMkDirSyntax: (obj) => `mkdir "${obj.dirname}"`,
+        getMkDirSyntax: (obj) => `mkdir -p "${obj.dirname}"`,
         getMkFileSyntax: (obj) => `touch "${obj.filename}"`,
-        getWriteFileSyntax: (obj) => `echo "${obj.content}" >> "${obj.filename}"`,
+        getWriteFileSyntax: (obj) => `echo "${obj.content}" > "${obj.filename}"`,
     },
     powershell: {
+        preset: ``,
         getPrintMsgSyntax: (obj) => `Write-Host "${obj.message}"`,
-        getMkDirSyntax: (obj) => `New-Item "${obj.dirname}" -ItemType Directory`,
-        getMkFileSyntax: (obj) => `New-Item "${obj.filename}"`,
+        getMkDirSyntax: (obj) => `New-Item -Path "${obj.dirname}" -ItemType Directory`,
+        getMkFileSyntax: (obj) => `New-Item -Path "${obj.filename}"`,
         getWriteFileSyntax: (obj) => `Add-Content -Path "${obj.filename}" -Value "${obj.content}"`,
     }
 }
