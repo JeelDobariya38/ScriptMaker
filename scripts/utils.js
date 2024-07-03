@@ -7,8 +7,11 @@ let highlightDepertedLanguage = () => {
     let infoElem = document.querySelector("#toast-info");
     let checklist = document.querySelector("#language-option");
 
+    if (!infoElem || !checklist) {
+        return false;
+    }
+
     checklist.addEventListener("change", () => {
-        console.log(checklist.value);
         if (checklist.value == "bat") {
             checklist.style.color = "red";
             infoElem.style.color = "red";
