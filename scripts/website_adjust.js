@@ -1,27 +1,33 @@
 function getMobileWebsite() {
-    return window.location.href.replace("index.html", "smallscreens_homepage.html");
+    return window.location.href.replace("desktop", "mobile");
 }
 
 function getDestopWebsite() {
-    return window.location.href.replace("smallscreens_homepage.html", "index.html");
+    return window.location.href.replace("mobile", "desktop");
 }
 
 
 function checkScreenWidth() {
-    if (window.innerWidth <= 650) {
+    if (window.innerWidth <= 768) { // from approx tablet onwards...
         console.log("It seems like you are on a Phone!!!!");
-        if (window.location.href.includes("index.html")) {
+        if (window.location.href.includes("desktop")) {
             window.location.href = getMobileWebsite();
         }
     } else {
         console.log("It seems like you are on a Desktop!!!!");
-        if (window.location.href.includes("homepage.html")) {
+        if (window.location.href.includes("mobile")) {
             window.location.href = getDestopWebsite();
         }
     }
 }
 
-if (!window.location.pathname.includes(".html")) {
-    window.location.pathname += "index.html";
+function Setup_Adjuster() {
+    if (!window.location.pathname.includes(".html")) {
+        window.location.pathname += "mobile-homepage.html";
+    }
+
+    window.addEventListener("load", checkScreenWidth);
+    window.addEventListener("resize", checkScreenWidth);
 }
-window.onload = checkScreenWidth;
+
+Setup_Adjuster();
