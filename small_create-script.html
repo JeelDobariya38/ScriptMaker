@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ScriptMaker | Create</title>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.0/typed.js"
+            integrity="sha512-ioFpA4cD4gmoOhHglW4f6gep7w+YL7UMKtXx4ebJ5NN4SscmnZYYmSjkA+DaHGvBI4wpYVPx2C7DmmV9TgbIbQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+        <link rel="stylesheet" href="./styles/tailwind/output.css">
+        <link rel="stylesheet" href="./styles/style.css">
+        <script src="./scripts/utils.js"></script>
+        <script src="./scripts/compile.js"></script>
+        <script src="./scripts/extract_script_content.js"></script>
+        <script src="./scripts/createclick.js"></script>
+        <script src="./scripts/script.js"></script>
+    </head>
+
+    <body class="dark-theme">
+        <h1 class="text-2xl font-black text-center p-2">Create Scripts that Automate World!!!</h1>
+
+        <div class="script-container m-2 my-4">
+            <div id="toast-info" class="my-4 text-xs"></div>
+            <h2 class="text-2xl text-center font-bold">Script Content</h2>
+            <div class="py-2 flex flex-col justify-between">
+                <div class="m-2">
+                    <label for="language-option">Select a language: </label>
+                    <select name="language" id="language-option">
+                        <option class="stable" value="powershell">PowerShell (Windows)</option>
+                        <option class="stable" value="bash">Bash (Linux/MacOs)</option>
+                        <option class="stable" value="python">Python 3.9+</option>
+                        <option class="depecreted" value="bat">Depecreted: Batch (Bat)</option>
+                    </select>
+                </div>
+                <div class="m-2 flex justify-between">
+                    <button id="copybtn" class="btn btnfeedback"><i class="px-2 fa-solid fa-clipboard"></i>Copy To
+                        ClipBoard</button>
+                    <button id="downloadbtn" class="btn btnfeedback"><i
+                            class="px-2 fa-solid fa-file-arrow-down"></i>Download</button>
+                </div>
+            </div>
+            <div class="my-8">
+                <div class="m-1">
+                    <label for="elem-option">Select a element: </label>
+                    <select id="elem-option">
+                        <option value="printmsg">Print A Message</option>
+                        <option value="mkdir">Make a Directory</option>
+                        <option value="mkfile">Make a File</option>
+                        <option value="writefile">Write to File</option>
+                    </select>
+                    <input class="px-2 border-2 rounded-lg transition-colors hover:text-slate-900 hover:bg-slate-100"
+                        type="button" id="addelem" value="Add Element" />
+                </div>
+
+                <div class="m-1">
+
+                    <div class="script-content min-h-48 small-container">
+
+                    </div>
+
+                    <div class="hidden script-snippits w-5/12">
+                        <div id="printmsg" class="btn w-full m-2 dragable">
+                            <h3>Print A Message</h3>
+                            <div id="details" class="hidden details p-2">
+                                <label for="messageinput">Message: </label>
+                                <input type="text" id="messageinput" class="args">
+                            </div>
+                        </div>
+                        <div id="mkdir" class="btn w-full m-2 dragable">
+                            <h3>Make a Directory</h3>
+                            <div id="details" class="hidden details p-2">
+                                <label for="directorynameinput">DirectoryName: </label>
+                                <input type="text" id="directorynameinput" class="args">
+                            </div>
+                        </div>
+                        <div id="mkfile" class="btn w-full m-2 dragable">
+                            <h3>Make a File</h3>
+                            <div id="details" class="hidden details p-2">
+                                <label for="filenameinput">FileName: </label>
+                                <input type="text" id="filenameinput" class="args">
+                            </div>
+                        </div>
+                        <div id="writefile" class="btn w-full m-2 dragable">
+                            <h3>Write to File</h3>
+                            <div id="details" class="hidden details p-2">
+                                <label for="filenameinput">FileName: </label>
+                                <input type="text" id="filenameinput" class="args">
+                                <br />
+                                <label for="contentinput">Content: </label>
+                                <input type="text" id="contentinput" class="args">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

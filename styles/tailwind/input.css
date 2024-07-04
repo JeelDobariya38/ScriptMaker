@@ -27,5 +27,9 @@
 }
 
 .container {
-  @apply p-4 my-4 border-2 rounded-lg;
+  @apply p-4 pr-8 my-4 border-2 rounded-lg;
+}
+
+.small-container {
+  @apply p-2 pr-4 my-2 border-2 rounded-lg;
 }
