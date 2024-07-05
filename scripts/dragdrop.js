@@ -12,6 +12,16 @@ const setup_drag_and_drop_functionality = (dragables, dropzone) => {
                 selected.classList.add("show-full");
                 selected.draggable = false;
                 dropzone.appendChild(selected);
+
+                let deleteBtn = undefined;
+                selected.childNodes.forEach((child) => {
+                    if (child.id == "deleteElemBtn") {
+                        deleteBtn = child;
+                        return;
+                    }
+                });
+                addDeleteFunction(deleteBtn);
+
                 selected = null;
             });
         });

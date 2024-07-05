@@ -4,8 +4,15 @@ const setup_click_and_create_functionality = (selectElem, addElemBtn, finalzoneE
         elemToAdd = elemToAdd.cloneNode(true);
         elemToAdd.classList.add("show-full");
         finalzoneElem.appendChild(elemToAdd);
-    })
-
+        let deleteBtn = undefined;
+        elemToAdd.childNodes.forEach((child) => {
+            if (child.id == "deleteElemBtn") {
+                deleteBtn = child;
+                return;
+            }
+        });
+        addDeleteFunction(deleteBtn);
+    });
 };
 
 

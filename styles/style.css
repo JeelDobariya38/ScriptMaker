@@ -37,6 +37,10 @@ body {
   color: var(--back-ground);
 }
 
+.show-full #deleteElemBtn {
+  display: inline-block;
+}
+
 .show-full .details {
   display: block;
   gap: 16px;
@@ -44,8 +48,7 @@ body {
 
 input.args,
 select {
-  background: inherit;
-  color: inherit;
+  padding: 0px 6px;
   border: 2px solid var(--back-ground);
   border-radius: 8px;
 }
