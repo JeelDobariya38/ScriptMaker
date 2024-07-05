@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", (e) => {
-    if (window.location.href.endsWith("index.html") || window.location.href.endsWith("smallscreens_homepage.html")) {
+    if (window.location.href.includes("homepage.html")) {
         new Typed(
             "#typer",
             {

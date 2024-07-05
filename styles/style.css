@@ -49,8 +49,6 @@ body {
 input.args,
 select {
   padding: 0px 6px;
-  background: var(--fore-ground);
-  color: var(--active-ground);
   border: 2px solid var(--back-ground);
   border-radius: 8px;
 }
