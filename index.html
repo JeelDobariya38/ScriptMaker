@@ -4,14 +4,18 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Script Maker | Inital Page</title>
+        <title>Script Maker | Initial Page</title>
     </head>
 
     <body>
-        <h1>Script Maker | Inital Page</h1>
-        <p>Please Wait we redirecting you!!</p>
+        <h1>Script Maker | Initial Page</h1>
+        <p>Please Wait we redirecting you....</p>
         <script>
-            window.location.pathname += "mobile-homepage.html";
+            if (window.location.href.includes("index.html")) {
+                window.location.href = window.location.href.replace("index.html", "mobile-homepage.html");
+            } else {
+                window.location.href += "mobile-homepage.html";
+            }
         </script>
     </body>
 

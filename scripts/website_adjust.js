@@ -22,10 +22,6 @@ function checkScreenWidth() {
 }
 
 function Setup_Adjuster() {
-    if (!window.location.pathname.includes(".html")) {
-        window.location.pathname += "mobile-homepage.html";
-    }
-
     window.addEventListener("load", checkScreenWidth);
     window.addEventListener("resize", checkScreenWidth);
 }
