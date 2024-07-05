@@ -49,6 +49,8 @@ body {
 input.args,
 select {
   padding: 0px 6px;
+  background-color: inherit;
+  color: inherit;
   border: 2px solid var(--back-ground);
   border-radius: 8px;
 }
