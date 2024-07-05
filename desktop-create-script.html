@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="./styles/style.css">
         <link rel="stylesheet" href="./styles/tailwind/output.css">
         <script src="./scripts/utils.js"></script>
+        <script src="./scripts/delete_elem.js"></script>
         <script src="./scripts/compile.js"></script>
         <script src="./scripts/extract_script_content.js"></script>
         <script src="./scripts/dragdrop.js"></script>
@@ -62,6 +63,7 @@
                     <p class="text-center text-slate-500">Drap & Drop Elements To Make Scripts!!</p>
                     <div id="printmsg" class="btn w-full m-2 dragable" draggable="true">
                         <h3>Print A Message</h3>
+                        <button id="deleteElemBtn"><i class="fa-solid fa-trash" style="color: #c40808;"></i></button>
                         <div id="details" class="hidden details p-2">
                             <label for="messageinput">Message: </label>
                             <input type="text" id="messageinput" class="args">
@@ -69,6 +71,7 @@
                     </div>
                     <div id="mkdir" class="btn w-full m-2 dragable" draggable="true">
                         <h3>Make a Directory</h3>
+                        <button id="deleteElemBtn"><i class="fa-solid fa-trash" style="color: #c40808;"></i></button>
                         <div id="details" class="hidden details p-2">
                             <label for="directorynameinput">DirectoryName: </label>
                             <input type="text" id="directorynameinput" class="args">
@@ -76,6 +79,7 @@
                     </div>
                     <div id="mkfile" class="btn w-full m-2 dragable" draggable="true">
                         <h3>Make a File</h3>
+                        <button id="deleteElemBtn"><i class="fa-solid fa-trash" style="color: #c40808;"></i></button>
                         <div id="details" class="hidden details p-2">
                             <label for="filenameinput">FileName: </label>
                             <input type="text" id="filenameinput" class="args">
@@ -83,6 +87,7 @@
                     </div>
                     <div id="writefile" class="btn w-full m-2 dragable" draggable="true">
                         <h3>Write to File</h3>
+                        <button id="deleteElemBtn"><i class="fa-solid fa-trash" style="color: #c40808;"></i></button>
                         <div id="details" class="hidden details p-2">
                             <label for="filenameinput">FileName: </label>
                             <input type="text" id="filenameinput" class="args">
