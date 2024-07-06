@@ -81,6 +81,12 @@ select {
   align-items: center;
 }
 
+.themeChangeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 @media (max-width: 450px) {
   .up-down {
     display: flex;
