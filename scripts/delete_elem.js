@@ -1,6 +1,6 @@
 function addDeleteFunction(button) {
     button.addEventListener("click", (e) => {
-        let parent = e.target.parentNode;
+        let parent = e.target.parentNode.parentNode;
 
         if (parent.classList.contains("dragable")) {
             parent.remove();
