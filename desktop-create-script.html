@@ -27,9 +27,11 @@
         <script src="./scripts/extract_script_content.js"></script>
         <script src="./scripts/dragdrop.js"></script>
         <script src="./scripts/script.js"></script>
+        <script src="./scripts/darkmode.js"></script>
     </head>
 
-    <body class="dark-theme">
+    <body>
+        <button class="themeChangeBtn"><i class="fa-solid fa-circle-half-stroke"></i></button>
         <h1 class="text-4xl font-black text-center p-2">Create Scripts that Automate World!!!</h1>
 
         <div class="script-container m-4">
@@ -56,7 +58,15 @@
 
             <div class="flex justify-between gap-8">
                 <div class="script-content min-w-16 min-h-16 container">
-
+                    <div id="printmsg" class="show-full btn w-full m-2 dragable initialElem" draggable="true">
+                        <h3>Print A Message</h3>
+                        <button id="deleteElemBtn" class="hidden"><i class="fa-solid fa-trash"
+                                style="color: #c40808;"></i></button>
+                        <div id="details" class="hidden details p-2">
+                            <label for="messageinput">Message: </label>
+                            <input type="text" value="Hello, World!!" id="messageinput" class="args">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="script-snippits w-5/12">

@@ -49,6 +49,8 @@ body {
 input.args,
 select {
   padding: 0px 6px;
+  background-color: inherit;
+  color: inherit;
   border: 2px solid var(--back-ground);
   border-radius: 8px;
 }
@@ -70,6 +72,19 @@ select {
   padding: 4px 6px;
   border: 2px solid red;
   border-radius: 24px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.themeChangeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 @media (max-width: 450px) {
