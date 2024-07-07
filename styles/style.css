@@ -35,9 +35,10 @@ body {
 }
 
 body {
-  background: var(--fore-ground);
-  color: var(--back-ground);
+  color: var(--fore-ground);
+  background: var(--back-ground);
   font-family: "Inter", sans-serif;
+  transition: color 0.5s, background-color 0.5s, background 0.5s;
 }
 
 h1 {
@@ -58,8 +59,14 @@ select {
   padding: 0px 6px;
   background-color: inherit;
   color: inherit;
-  border: 2px solid var(--back-ground);
+  border: 2px solid var(--fore-ground);
   border-radius: 8px;
+}
+
+#elem-option {
+  accent-color: var(--fore-ground);
+  color: var(--fore-ground);
+  background: var(--back-ground);
 }
 
 .text-center {
@@ -90,7 +97,7 @@ select {
 
 .themeChangeBtn {
   position: absolute;
-  top: 20px;
+  top: 30px;
   right: 20px;
 }
 
