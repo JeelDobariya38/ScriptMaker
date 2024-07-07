@@ -63,8 +63,9 @@ select {
 }
 
 #elem-option {
+  accent-color: var(--fore-ground);
   color: var(--fore-ground);
-  background: var(--back-color);
+  background: var(--back-ground);
 }
 
 .text-center {
@@ -95,7 +96,7 @@ select {
 
 .themeChangeBtn {
   position: absolute;
-  top: 20px;
+  top: 30px;
   right: 20px;
 }
 
