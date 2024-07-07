@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
                 typeSpeed: 50,
                 backSpeed: 30,
                 loop: true,
+                showCursor: false,
                 smartBackspace: false,
             },
         );
