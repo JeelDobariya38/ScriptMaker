@@ -68,6 +68,17 @@
 
                 <div class="m-1">
                     <div class="hidden script-snippits w-5/12">
+                        <div id="comment" class="btn w-full m-2 dragable">
+                            <div class="flex justify-between">
+                                <h3>Document Stuff</h3>
+                                <button id="deleteElemBtn" class="hidden"><i class="fa-solid fa-trash"
+                                        style="color: #c40808;"></i></button>
+                            </div>
+                            <div id="details" class="hidden details p-2">
+                                <label for="commentinput">Comment: </label>
+                                <input type="text" id="commentinput" class="args">
+                            </div>
+                        </div>
                         <div id="printmsg" class="btn w-full m-2 dragable">
                             <div class="flex justify-between">
                                 <h3>Print A Message</h3>
@@ -115,10 +126,53 @@
                                 <input type="text" id="contentinput" class="args">
                             </div>
                         </div>
+                        <div id="readfile" class="btn w-full m-2 dragable">
+                            <div class="flex justify-between">
+                                <h3>Read to File</h3>
+                                <button id="deleteElemBtn" class="hidden"><i class="fa-solid fa-trash"
+                                        style="color: #c40808;"></i></button>
+                            </div>
+                            <div id="details" class="hidden details p-2">
+                                <label for="filenameinput">FileName: </label>
+                                <input type="text" id="filenameinput" class="args">
+                            </div>
+                        </div>
+                        <div id="cdpwd" class="btn w-full m-2 dragable">
+                            <div class="flex justify-between">
+                                <h3>Change Working Directory</h3>
+                                <button id="deleteElemBtn" class="hidden"><i class="fa-solid fa-trash"
+                                        style="color: #c40808;"></i></button>
+                            </div>
+                            <div id="details" class="hidden details p-2">
+                                <label for="pathinput">Path: </label>
+                                <input type="text" id="pathinput" class="args">
+                            </div>
+                        </div>
+                        <div id="cdback" class="btn w-full m-2 dragable">
+                            <div class="flex justify-between">
+                                <h3>Move Back A Step</h3>
+                                <button id="deleteElemBtn" class="hidden"><i class="fa-solid fa-trash"
+                                        style="color: #c40808;"></i></button>
+                            </div>
+                            <div id="details" class="hidden details p-2">
+                                <label>Path: Move Back A Directory!!!</label>
+                            </div>
+                        </div>
+                        <div id="executecommand" class="btn w-full m-2 dragable">
+                            <div class="flex justify-between">
+                                <h3>Execute Command</h3>
+                                <button id="deleteElemBtn" class="hidden"><i class="fa-solid fa-trash"
+                                        style="color: #c40808;"></i></button>
+                            </div>
+                            <div id="details" class="hidden details p-2">
+                                <label for="commandinput">Command: </label>
+                                <input type="text" id="commandinput" class="args">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="script-content min-h-48 small-container">
-                        <div id="printmsg" class="show-full btn w-full m-2 dragable initialElem" draggable="true">
+                        <div id="printmsg" class="show-full btn w-full m-2 dragable initialElem">
                             <div class="flex justify-between">
                                 <h3>Print A Message</h3>
                                 <button id="deleteElemBtn" class="hidden"><i class="fa-solid fa-trash"
