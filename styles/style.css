@@ -22,7 +22,6 @@
   padding: 0px;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  transition: color 0.5s, background-color 0.5s, background 0.5s;
 }
 
 *::-webkit-scrollbar {
@@ -39,6 +38,7 @@ body {
   color: var(--fore-ground);
   background: var(--back-ground);
   font-family: "Inter", sans-serif;
+  transition: color 0.5s, background-color 0.5s, background 0.5s;
 }
 
 h1 {
