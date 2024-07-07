@@ -8,20 +8,22 @@ class GeneralCompile {
     compile() {
         let code = this.compiler.preset;
 
-        this.scriptTokens.forEach((obj) => {
-            if (obj.id == "printmsg") {
-                code = code + this.compiler.getPrintMsgSyntax(obj) + this.newline;
-            }
-            else if (obj.id == "mkdir") {
-                code = code + this.compiler.getMkDirSyntax(obj) + this.newline;
-            }
-            else if (obj.id == "mkfile") {
-                code = code + this.compiler.getMkFileSyntax(obj) + this.newline;
-            }
-            else if (obj.id == "writefile") {
-                code = code + this.compiler.getWriteFileSyntax(obj) + this.newline;
-            }
-        });
+        // this.scriptTokens.forEach((obj) => {
+        //     if (obj.id == "printmsg") {
+        //         code = code + this.compiler.getPrintMsgSyntax(obj) + this.newline;
+        //     }
+        //     else if (obj.id == "mkdir") {
+        //         code = code + this.compiler.getMkDirSyntax(obj) + this.newline;
+        //     }
+        //     else if (obj.id == "mkfile") {
+        //         code = code + this.compiler.getMkFileSyntax(obj) + this.newline;
+        //     }
+        //     else if (obj.id == "writefile") {
+        //         code = code + this.compiler.getWriteFileSyntax(obj) + this.newline;
+        //     }
+        // });
+
+        console.log("tokens: ", this.scriptTokens);
 
         return code;
     }

@@ -8,7 +8,20 @@ const getCode = () => {
             id: indx,
         };
 
-        if (elem.id == "printmsg") {
+        if (elem.id == "comment") {
+            token.id = "comment";
+            elem.childNodes.forEach((childElem) => {
+                if (childElem.id == "details") {
+                    childElem.childNodes.forEach((detailChildElem) => {
+                        if (detailChildElem.id == "commentinput") {
+                            token.comment = makeSafeStr(detailChildElem.value);
+                        }
+                    });
+                }
+            });
+        }
+
+        else if (elem.id == "printmsg") {
             token.id = "printmsg";
             elem.childNodes.forEach((childElem) => {
                 if (childElem.id == "details") {
@@ -57,6 +70,49 @@ const getCode = () => {
                         }
                         if (detailChildElem.id == "contentinput") {
                             token.content = makeSafeStr(detailChildElem.value);
+                        }
+                    });
+                }
+            });
+        }
+
+        else if (elem.id == "readfile") {
+            token.id = "readfile";
+            elem.childNodes.forEach((childElem) => {
+                if (childElem.id == "details") {
+                    childElem.childNodes.forEach((detailChildElem) => {
+                        if (detailChildElem.id == "filenameinput") {
+                            token.filename = makeSafeStr(detailChildElem.value);
+                        }
+                    });
+                }
+            });
+        }
+
+        else if (elem.id == "cdpwd") {
+            token.id = "cdpwd";
+            elem.childNodes.forEach((childElem) => {
+                if (childElem.id == "details") {
+                    childElem.childNodes.forEach((detailChildElem) => {
+                        if (detailChildElem.id == "pathinput") {
+                            token.path = makeSafeStr(detailChildElem.value);
+                        }
+                    });
+                }
+            });
+        }
+
+        else if (elem.id == "cdback") {
+            token.id = "cdback";
+        }
+
+        else if (elem.id == "executecommand") {
+            token.id = "executecommand";
+            elem.childNodes.forEach((childElem) => {
+                if (childElem.id == "details") {
+                    childElem.childNodes.forEach((detailChildElem) => {
+                        if (detailChildElem.id == "commandinput") {
+                            token.command = makeSafeStr(detailChildElem.value);
                         }
                     });
                 }
