@@ -1,0 +1,15 @@
+{
+  "baseUrl": "https://raw.githubusercontent.com/JeelDobariya38/ScriptMaker/master/data.json",
+  "data": [
+    {
+      "name": "hello",
+      "desc": "lorem",
+      "path": "scripts/hello.bat"
+    },
+    {
+      "name": "hello world",
+      "desc": "lorem",
+      "path": "scripts/hello.ps1"
+    }
+  ]
+}
