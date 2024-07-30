@@ -1,0 +1,20 @@
+{
+    "name": "Scriptmaker - scriptbase",
+    "desc": "A scriptmaker is a website where one could to create shell scripts that have potential to automate world!!",
+    "baseurlforgithubrawreader": "https://raw.githubusercontent.com/JeelDobariya38/ScriptMaker/master/scriptbase/",
+    "fileurl": "https://github.com/JeelDobariya38/ScriptMaker/blob/main/scriptbase/manager.json",
+    "repourl": "https://github.com/JeelDobariya38/ScriptMaker",
+    "websiteurl": "https://jeeldobariya38.github.io/ScriptMaker/desktop-homepage.html",
+    "scripts": [
+        {
+            "name": "Hello World Script",
+            "desc": "A basic hello world script.",
+            "links": {
+                "batch": "hello.bat",
+                "pshell": "hello.ps1",
+                "bash": "hello.bash",
+                "py": "hello.py"
+            }
+        }
+    ]
+}
