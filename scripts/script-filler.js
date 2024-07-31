@@ -11,7 +11,7 @@ async function getScript(rawfetcherurl, url) {
 async function getBaseUrl() {
     let res = await fetch(managerurl);
     let jsondata = await res.json();
-    return jsondata["baseurlforgithubrawreader"].replace("master", "dev")
+    return jsondata["baseurlforgithubrawreader"]
 }
 
 function getUrlParameter(name) {
