@@ -30,7 +30,7 @@ function docFiller(scriptarr) {
 
 let main = async () => {
     let masterdata = await getManager();
-    rawfetcherurl = masterdata["baseurlforgithubrawreader"].replace("master", "dev");
+    rawfetcherurl = masterdata["baseurlforgithubrawreader"]
     
     docFiller(masterdata["scripts"]); 
 }
