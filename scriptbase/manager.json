@@ -15,6 +15,26 @@
                 "bash": "hello.bash",
                 "py": "hello.py"
             }
+        },
+        {
+            "name": "Compile and Run Java Code",
+            "desc": "A script to compile and run Java code, and create a JAR file.",
+            "links": {
+                "batch": "java.bat",
+                "pshell": "java.ps1",
+                "bash": "java.bash",
+                "py": "java.py"
+            }
+        },
+        {
+            "name": "Compile and Run C++ Code",
+            "desc": "A script to compile and run C++ code.",
+            "links": {
+                "batch": "cpp.bat",
+                "pshell": "cpp.ps1",
+                "bash": "cpp.bash",
+                "py": "cpp.py"
+            }
         }
     ]
 }
