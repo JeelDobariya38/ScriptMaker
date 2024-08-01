@@ -817,11 +817,6 @@ video {
   color: rgb(21 94 117 / var(--tw-text-opacity));
 }
 
-.text-cyan-950 {
-  --tw-text-opacity: 1;
-  color: rgb(8 51 68 / var(--tw-text-opacity));
-}
-
 .text-slate-400 {
   --tw-text-opacity: 1;
   color: rgb(148 163 184 / var(--tw-text-opacity));
@@ -932,6 +927,52 @@ video {
   border-width: 2px;
   padding: 0.5rem;
   padding-right: 1rem;
+}
+
+.script-card {
+  margin: 1rem;
+  display: inline-block;
+  width: 24rem;
+  border-radius: 0.25rem;
+  border-width: 2px;
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .script-card {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .script-card {
+    width: 33.333333%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .script-card {
+    width: 25%;
+  }
+}
+
+.script-heading {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.script-desc {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.script-links {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .hover\:bg-slate-100:hover {

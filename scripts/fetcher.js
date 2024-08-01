@@ -14,13 +14,15 @@ function docFiller(scriptarr) {
     scriptarr.forEach(script => {
         let cardHTML = `
             <div class="script-card">
-                <h1>${script["name"]}</h1>
-                <p>${script["desc"]}</p>
-                <div class="links">
-                    <a href="./desktop-scriptpreview.html?url=${script["links"]["pshell"]}">powershell</a>
-                    <a href="./desktop-scriptpreview.html?url=${script["links"]["bash"]}">bash</a>
-                    <a href="./desktop-scriptpreview.html?url=${script["links"]["py"]}">python</a>
-                    <a href="./desktop-scriptpreview.html?url=${script["links"]["batch"]}">batch</a>
+                <h1 class="script-heading">${script["name"]}</h1>
+                <p class="script-desc">${script["desc"]}</p>
+                <div class="script-links">
+                    <a href="./desktop-scriptpreview.html?url=${script["links"]["pshell"]}" class="btn btnfeedback">powershell</a>
+                    <a href="./desktop-scriptpreview.html?url=${script["links"]["bash"]}" class="btn btnfeedback">bash</a>
+                </div>
+                <div class="script-links">
+                    <a href="./desktop-scriptpreview.html?url=${script["links"]["py"]}" class="btn btnfeedback">python</a>
+                    <a href="./desktop-scriptpreview.html?url=${script["links"]["batch"]}" class="btn btnfeedback">batch</a>
                 </div>
             </div>
         `;
