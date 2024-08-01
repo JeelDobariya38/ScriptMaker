@@ -33,3 +33,19 @@
 .small-container {
   @apply p-2 pr-4 my-2 border-2 rounded-lg;
 }
+
+.script-card {
+  @apply m-4 p-2 border-2 rounded inline-block w-96 md:w-1/2 lg:w-1/3 xl:w-1/4;
+}
+
+.script-heading {
+  @apply text-xl my-2;
+}
+
+.script-desc {
+  @apply text-lg my-1;
+}
+
+.script-links {
+  @apply my-4;
+}
